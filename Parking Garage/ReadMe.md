@@ -14,7 +14,11 @@ This is the header file which has the implementation of 3D array named parkingDa
 After initialization, the nested for loops assigns each spot a value. To fill them randomly, I used the rand() function
 and set the limits to 0 and 1.
 
-#
+
+
+
+
+##parkingGarage.c
 
 
 
