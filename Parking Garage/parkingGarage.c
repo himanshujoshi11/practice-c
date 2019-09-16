@@ -15,6 +15,29 @@ int main() {
     printf("4. "\n);
     printf("----------------------------------------------------------------");
     printf("Enter Selection:");
+    char selection;
+    selection = getchar();
+
+    switch(selection) {
+      case '1' :
+      break;
+
+      case '2' :
+      break;
+
+      case '3' :
+      break;
+
+      case '4' :
+      break;
+
+      default  :
+      printf("Invalid selection, try again!"\n);
+      printf("\n \n \n");
+      
+    }
+
+
   }
 
 }
