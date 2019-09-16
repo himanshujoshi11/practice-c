@@ -1,6 +1,6 @@
 # Parking Garage
 
-## __ About
+## _ About _
 This a small implementation for a company's parking system. The xyz company has 3 buildings (A, B and C)
 and each building has 6 floors for parking and each parking floor has 100 parking spots. The implementation
 is done with a 3-dimensional array which contains all the parking spots across the buildings.
