@@ -17,6 +17,7 @@ int main() {
   }
 
   while(exit){
+    printf("\n \n \n \n \n \n \n \n \n \n");
     printf("======================================================================\n");
     printf("Welcome to parkingGarage for xyz company, Select one of these options:\n");
     printf("======================================================================\n");
@@ -29,14 +30,25 @@ int main() {
     printf("Enter Selection:");
     char selection;
     selection = getchar();
+    char sel = getchar();
+    if (sel != '\n'|| selection == '\n'){
+      selection = sel;
+    }
+    printf("\n");
 
     switch(selection) {
       case '1' :                                              //CASE 1: Park/Unpark car
 
       while(1){
-        printf("Enter P to park and U to unpark a car:");     // Asks if you want to park or unpark.
+        printf("Enter P to park and U to unpark a car: ");     // Asks if you want to park or unpark.
         scanf("%c", &action);
-        if (strcmp(action, "P")|| strcmp(action, "U")){       //Checks input
+        if (action == '\n'){
+        action = getchar();
+        }
+        else{
+          getchar();
+        }
+        if ( (action == 'P')||(action == 'U') ){       //Checks input
           break;
         }
         else{
@@ -45,9 +57,15 @@ int main() {
       }
 
       while(1){                                           // Which building to park in
-      printf("Enter building (A,B or C):");
+      printf("Enter building (A,B or C): ");
       scanf("%c", &building);
-      if (building =="A" ||building =="B"||building =="C"){
+      if (building == '\n'){
+      building = getchar();
+      }
+      else{
+        getchar();
+      }
+      if (building == 'A' || building == 'B' || building =='C'){
         break;
       }
       else{
@@ -68,7 +86,7 @@ int main() {
       }
 
       while(1){
-      printf("What's your parking spot(1-100)?");              // Which parking spot
+      printf("What's your parking spot(1-100)? ");              // Which parking spot
       scanf("%d", &spotNumber);
       if (floorNumber>0 || floorNumber<101){
         break;

@@ -28,27 +28,27 @@ void isFull(){
 void park_unpark(char action, char building, int floorNumber,int spotNumber){
   int building_number;
 
-  if (building == "A"){
+  if (building == 'A'){
     building_number = 0;
   }
-  else if (building == "B") {
+  else if (building == 'B') {
     building_number = 1;
   }
-  else if (building == "C") {
+  else if (building == 'C') {
     building_number = 2;
   }
 
-  if (action == "P"){
+  if (action == 'P'){
     if (parkingData[building_number][floorNumber][spotNumber] != 0){
-      printf("Error while parking your car, the space is already reserved. Try again\n");
+      printf("Error while parking your car, the space is already reserved. Try again!\n");
     }
     else{
       parkingData[building_number][floorNumber][spotNumber] = 1;
-      printf("Car unparked!\n" );
+      printf("Car Parked!\n" );
     }
   }
 
-  if (action == "U"){
+  if (action == 'U'){
     if (parkingData[building_number][floorNumber][spotNumber] != 1){
       printf("Error while unparking your car, there is no car in that spot. Try again\n");
     }
@@ -106,7 +106,7 @@ void showAllSpots(){
           printf("[%d: Open]", z+1);
         }
         else{
-          printf("[%d: Reserved]");
+          printf("[%d: Reserved]", z+1);
         }
         if (z == 99){
           printf("\n");
