@@ -12,3 +12,12 @@ for (int i = 0; i < 3; i++){                 // The three buildings: A, B and C
     }
   }
 }
+
+int park_unpark(int )
+
+
+void showOpenSpots(){
+
+}
+
+void
