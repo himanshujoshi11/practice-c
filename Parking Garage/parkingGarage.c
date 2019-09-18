@@ -2,11 +2,10 @@
 #include <stdio.h>
 
 int main() {
-  char action;
-  char building;
-  int floorNumber;
-  int spotNumber;
+
   int exit =1;
+
+  //The nested loop below fills up the array with random numbers between 1 and 0:
   for (int i = 0; i < 3; i++){                 // The three buildings: A, B and C
     for (int j = 0; j < 6; j++){               // Each Building has 6 parking floors
       for (int z = 0; z < 100; z++){           // Each floor has 100 parking spots
@@ -15,6 +14,7 @@ int main() {
       }
     }
   }
+
 
   while(exit){
     printf("\n \n \n \n \n \n \n \n \n \n");
@@ -31,72 +31,14 @@ int main() {
     char selection;
     selection = getchar();
     char sel = getchar();
-    if (sel != '\n'|| selection == '\n'){
+    if (sel != '\n'|| selection == '\n'){               //makes sure the scanned char is not a newline char.
       selection = sel;
     }
     printf("\n");
 
     switch(selection) {
-      case '1' :                                              //CASE 1: Park/Unpark car
-
-      while(1){
-        printf("Enter P to park and U to unpark a car: ");     // Asks if you want to park or unpark.
-        scanf("%c", &action);
-        if (action == '\n'){
-        action = getchar();
-        }
-        else{
-          getchar();
-        }
-        if ( (action == 'P')||(action == 'U') ){       //Checks input
-          break;
-        }
-        else{
-        printf("wrong input, try again.\n");
-      }
-      }
-
-      while(1){                                           // Which building to park in
-      printf("Enter building (A,B or C): ");
-      scanf("%c", &building);
-      if (building == '\n'){
-      building = getchar();
-      }
-      else{
-        getchar();
-      }
-      if (building == 'A' || building == 'B' || building =='C'){
-        break;
-      }
-      else{
-      printf("wrong input, try again.\n");
-        }
-      }
-
-
-      while(1){
-      printf("Now enter the floor (1 to 6):");                // Which floor to park
-      scanf("%d", &floorNumber);
-      if (floorNumber>0 || floorNumber<7){
-        break;
-      }
-      else{
-      printf("wrong input, try again.\n");
-      }
-      }
-
-      while(1){
-      printf("What's your parking spot(1-100)? ");              // Which parking spot
-      scanf("%d", &spotNumber);
-      if (floorNumber>0 || floorNumber<101){
-        break;
-      }
-      else{
-      printf("wrong input, try again.\n");
-      }
-      }
-
-      park_unpark(action, building, floorNumber -1, spotNumber-1);  //calls the function with the arguments.
+      case '1' :                                                  //CASE 1: Park/Unpark car
+      park_unpark();
       break;
 
       case '2' :                                                  //CASE 2: show all open spots
@@ -107,21 +49,18 @@ int main() {
       showAllSpots();
       break;
 
-      case '4' :                                                //CASE 4: checks if the parking is full
+      case '4' :                                                 //CASE 4: checks if the parking is full
       isFull();
       break;
 
-      case '5' :                                                //CASE 5: Exit menu
+      case '5' :                                                 //CASE 5: Exit menu
       exit = 0;
       break;
 
-      default  :
+      default  :                                                // Default case.
       printf("Invalid selection, try again!\n");
       printf("\n \n \n");
 
     }
-
-
   }
-
 }
