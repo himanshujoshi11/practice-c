@@ -1,0 +1,70 @@
+//Himanshu Joshi joshi271@umn.edu, 5392812
+//Mahsa Ayoughi  ayoug002@umn.edu,  5150733
+Design Document
+
+1. Program Description
+
+This program will construct a database called student. There are pre-made records of students
+with information in the header file. Based on the command that a user inputs in the main menu,
+it can do one of the following: print all records of students, print the number of records currently
+in the database, print the data size, add a student record, delete a student record and print the
+amount of times the database has been accessed. The student information consists of their first
+name, last name, year in school, major and gpa.
+
+2. Usage Statement (menu or command line)
+
+	usage: lab2
+
+3. Data Structure Definition: for record structure (student)
+
+struct student {
+	char fname[128];	—first name of student
+	char lname[128];	—last name of student
+	char year[128];	—year that student is in school
+	char major[128];	—student major
+	float gpa;		—student’s GPA
+}
+
+4. Each Function Defined with input, output, and algorithm
+
+void printRecords()
+	—There’s no input
+	—Output is all the records of students that are in the database, if there are none, then there is 	message saying that there is no records in the database.
+	—accessRecord is incremented by 1 to count the database being accessed
+
+void printNumRecords()
+	—No input needed
+	—Output is the number of records currently in the database
+	—Prints out int recordCount
+
+void printDataSize()
+	—No input
+	—Output is the size of database that is holding the student information of struct student
+	—recordCount is multiplied by sizeof(struct student) and the number shows the amount of 	bytes that is being used maintain the database, accessRecord is incremented by 1 to count the 	database being accessed
+
+void addRecord()
+	—No input
+	—Output: a pre-made record listed in header file is added to the database and lists the Name of 	of the student. The names are edited and can be changed or used as is.
+	—based on user input, they can choose how many they want to add. Currently in the header file 	there are 5 constructed students memories. Student information is copied and transferred so there is no overwrite in memory. recordCount and accessRecord are incremented.
+
+void deleteRecord()
+	—No input
+	—Output: either a message is printed that a record has been deleted or that there is no more 	records to be deleted.
+	—Check if the recordCount is 0, then the database is empty message is outputted. If not, then
+	pointer is created with enough memory for 1 struct student and then the information is reallocated
+	to mover and the memcpy copies 1 less struct student. recordCount is decremented and accessRecord
+	is incremented.
+
+void accessNum()
+	—No input
+	—Output is the number of times the database has been accessed.
+	—accessRecord has been incremented every time printRecords, printDataSize, addRecord, and deleteRecord
+	has been inputted in the main menu.
+
+5. Files required and types
+
+lab2.c —c code that contains the main program
+head.h —header file that contains the structure student, the definition and all the methods
+string.h —header file that contains string functions
+stdio.h —header file that contains standard I/O functions
+stdlib.h —header file that contains general functions
